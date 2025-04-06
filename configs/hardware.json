@@ -1,0 +1,8 @@
+{
+  "impressoras": {
+    "fiscal": {
+      "modelo": "Daruma DR800",
+      "porta": "/dev/ttyUSB0"
+    }
+  }
+}

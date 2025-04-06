@@ -1,0 +1,9 @@
+{
+  "app": {
+    "name": "PDV Electron",
+    "minWindowSize": {
+      "width": 1024,
+      "height": 768
+    }
+  }
+}

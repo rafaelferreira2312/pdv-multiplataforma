@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: pdv_user
+      POSTGRES_PASSWORD: pdv_password123
+      POSTGRES_DB: pdv_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - pdv-network
+
+  api:
+    build:
+      context: ../backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - pdv-network
+
+networks:
+  pdv-network:
+    driver: bridge
+
+volumes:
+  pg_data:
